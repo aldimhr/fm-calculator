@@ -8,7 +8,7 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 
 - [Vitejs](http://vitejs.dev/)
 - [Vuejs](https://vuejs.org/)
-- [TailwindsCSS](http://tailwindcss.com/)
+- [TailwindCSS](http://tailwindcss.com/)
 
   **Linters & Formatters**
 
@@ -18,5 +18,6 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 ## Todo List 
 
 - [x]  Theme 1
-- [ ]  Theme 2
-- [ ]  Theme 3
+- [x]  Theme 2
+- [x]  Theme 3
+- [ ]  Functionality
