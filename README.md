@@ -20,4 +20,5 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 - [x]  Theme 1
 - [x]  Theme 2
 - [x]  Theme 3
-- [ ]  Functionality
+- [x]  Functionality
+- [ ]  Theme slider
