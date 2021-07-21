@@ -20,8 +20,9 @@
                <!-- toggle -->
                <div class="text-xs grid grid-cols-5 gap-5 items-center">
                   <h2 class="col-span-2">THEME</h2>
-                  <div @click="changeTheme" class="rounded-full col-span-3 p-1 mx-2" :class="bgMainDarkBlue">
-                     <div class="rounded-full w-4 h-4" :class="bgKeysRed"></div>
+                  <div class="rounded-full col-span-3 p-1 mx-2 flex items-center" :class="bgMainDarkBlue">
+                     <input type="range" @click="changeTheme" value="0" min="0" max="2" step="1" class="w-14 appearance-none" :class="bgMainDarkBlue" />
+                     <!-- <div @click="changeTheme" class="rounded-full w-4 h-4" :class="bgKeysRed"></div> -->
                   </div>
                </div>
             </div>
@@ -158,14 +159,14 @@ export default {
          operatorValue: '',
          history: '',
          value: '',
-         theme: 'theme3',
+         theme: 'theme1',
          num: '',
       };
    },
    methods: {
       changeTheme: function (e) {
-         console.log(e.target);
-         e.target.style.transform = 'translateX(20px)';
+         let div = Number(e.target.value);
+         this.theme = 'theme' + (div + 1);
       },
       operator: function (val) {
          switch (val) {

@@ -21,4 +21,6 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 - [x]  Theme 2
 - [x]  Theme 3
 - [x]  Functionality
-- [ ]  Theme slider
+- [x]  Theme slider
+- [ ]  Theme slider color
+- [ ]  Save to localstorage
