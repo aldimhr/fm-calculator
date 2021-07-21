@@ -200,7 +200,7 @@ export default {
          let color;
 
          // delete rules
-         if (sheet.cssRules.length) sheet.deleteRule(sheet.cssRules.length - 1]);
+         if (sheet.cssRules.length) sheet.deleteRule(sheet.cssRules.length - 1);
 
          // add new rules
          if (this.theme == 'theme1') color = 'white';
