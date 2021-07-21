@@ -21,8 +21,7 @@
                <div class="text-xs grid grid-cols-5 gap-5 items-center">
                   <h2 class="col-span-2">THEME</h2>
                   <div class="rounded-full col-span-3 p-1 mx-2 flex items-center" :class="bgMainDarkBlue">
-                     <input type="range" @click="changeTheme" value="0" min="0" max="2" step="1" class="w-14 appearance-none" :class="bgMainDarkBlue" />
-                     <!-- <div @click="changeTheme" class="rounded-full w-4 h-4" :class="bgKeysRed"></div> -->
+                     <input type="range" @click="changeTheme" v-model="value" min="0" max="2" step="1" class="slider-thumb w-14 appearance-none" :class="bgMainDarkBlue" />
                   </div>
                </div>
             </div>
@@ -156,17 +155,37 @@
 export default {
    data: () => {
       return {
+         value: 0,
          operatorValue: '',
          history: '',
-         value: '',
-         theme: 'theme1',
+         theme: '',
          num: '',
       };
    },
+   created() {
+      let storage = localStorage.getItem('theme');
+      if (!storage) {
+         this.theme = 'theme1';
+         this.value = 0;
+      } else {
+         this.theme = storage;
+         this.value = parseInt(this.theme[this.theme.length - 1]) - 1;
+      }
+
+      // var sheet = window.document.styleSheets[0];
+      // sheet.insertRule('.button-hover:hover  { background-color: ' + e.target.style['border-bottom-color'] + '; }', sheet.cssRules.length);
+   },
    methods: {
-      changeTheme: function (e) {
-         let div = Number(e.target.value);
+      changeTheme: function () {
+         let div = Number(this.value);
          this.theme = 'theme' + (div + 1);
+
+         // change slider thumb color
+         // var sheet = window.document.styleSheets[0];
+         // sheet.insertRule('.button-hover:hover  { background-color: ' + e.target.style['border-bottom-color'] + '; }', sheet.cssRules.length);
+
+         // save to local storage
+         localStorage.setItem('theme', this.theme);
       },
       operator: function (val) {
          switch (val) {
@@ -310,3 +329,14 @@ export default {
    },
 };
 </script>
+
+<style scoped>
+.slider-thumb::-webkit-slider-thumb {
+   width: 15px;
+   height: 15px;
+   border-radius: 50%;
+   background: #fff;
+   -webkit-appearance: none;
+   appearance: none;
+}
+</style>
