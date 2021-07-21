@@ -163,6 +163,7 @@ export default {
       };
    },
    created() {
+      // get localstorage
       let storage = localStorage.getItem('theme');
       if (!storage) {
          this.theme = 'theme1';
@@ -172,17 +173,41 @@ export default {
          this.value = parseInt(this.theme[this.theme.length - 1]) - 1;
       }
 
-      // var sheet = window.document.styleSheets[0];
-      // sheet.insertRule('.button-hover:hover  { background-color: ' + e.target.style['border-bottom-color'] + '; }', sheet.cssRules.length);
+      // change slider thumb color
+      let sheet = window.document.styleSheets[1];
+      let rulestext = sheet.cssRules[0].selectorText;
+      let color;
+
+      // delete rules
+      if (sheet.cssRules.length) sheet.deleteRule(0);
+
+      // add new rules
+      if (this.theme == 'theme1') color = 'white';
+      if (this.theme == 'theme2') color = 'black';
+      if (this.theme == 'theme3') color = 'hsl(52, 100%, 62%)';
+
+      sheet.insertRule(rulestext + ' { background: ' + color + '; width: 15px; height: 15px; border-radius: 50%; -webkit-appearance: none; appearance: none; }', sheet.cssRules.length);
    },
    methods: {
       changeTheme: function () {
+         // change theme
          let div = Number(this.value);
          this.theme = 'theme' + (div + 1);
 
          // change slider thumb color
-         // var sheet = window.document.styleSheets[0];
-         // sheet.insertRule('.button-hover:hover  { background-color: ' + e.target.style['border-bottom-color'] + '; }', sheet.cssRules.length);
+         let sheet = window.document.styleSheets[1];
+         let rulestext = sheet.cssRules[0].selectorText;
+         let color;
+
+         // delete rules
+         if (sheet.cssRules.length) sheet.deleteRule(0);
+
+         // add new rules
+         if (this.theme == 'theme1') color = 'white';
+         if (this.theme == 'theme2') color = 'black';
+         if (this.theme == 'theme3') color = 'hsl(52, 100%, 62%)';
+
+         sheet.insertRule(rulestext + ' { background: ' + color + '; width: 15px; height: 15px; border-radius: 50%; -webkit-appearance: none; appearance: none; }', sheet.cssRules.length);
 
          // save to local storage
          localStorage.setItem('theme', this.theme);
