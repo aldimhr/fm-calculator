@@ -196,7 +196,7 @@ export default {
 
          // change slider thumb color
          let sheet = window.document.styleSheets[1];
-         let rulestext = sheet.cssRules[0].selectorText;
+         let rulestext = sheet.cssRules[cssRules.length - 1].selectorText;
          let color;
 
          // delete rules
