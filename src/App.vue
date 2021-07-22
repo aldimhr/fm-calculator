@@ -181,7 +181,7 @@ export default {
 
       // find index .slider-thumb
       for (let i = rules.length - 1; i >= 0; i--) {
-         if (rules[i].cssText.includes('thumb')) {
+         if (rules[i].cssText.includes('slider-thumb')) {
             // get rules text
             rulestext = sheet.cssRules[i].selectorText;
 
@@ -212,7 +212,7 @@ export default {
 
          // find index .slider-thumb
          for (let i = rules.length - 1; i >= 0; i--) {
-            if (rules[i].cssText.includes('thumb')) {
+            if (rules[i].cssText.includes('slider-thumb')) {
                // get rules text
                rulestext = sheet.cssRules[i].selectorText;
 
