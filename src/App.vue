@@ -176,20 +176,20 @@ export default {
       // change slider thumb color
       let sheet = window.document.styleSheets[1];
       let rules = sheet.cssRules;
-      let rulestext = sheet.cssRules[sheet.cssRules.length - 1].selectorText;
-      let index;
+      let rulestext;
       let color;
 
       // find index .slider-thumb
       for (let i = rules.length - 1; i >= 0; i--) {
          if (rules[i].cssText.includes('thumb')) {
-            index = i;
+            // get rules text
+            rulestext = sheet.cssRules[i].selectorText;
+
+            // delete rules
+            sheet.deleteRule(i);
             break;
          }
       }
-
-      // delete rules
-      if (sheet.cssRules.length) sheet.deleteRule(index);
 
       // add new rules
       if (this.theme == 'theme1') color = 'white';
@@ -207,20 +207,20 @@ export default {
          // change slider thumb color
          let sheet = window.document.styleSheets[1];
          let rules = sheet.cssRules;
-         let rulestext = sheet.cssRules[sheet.cssRules.length - 1].selectorText;
-         let index;
+         let rulestext;
          let color;
 
          // find index .slider-thumb
          for (let i = rules.length - 1; i >= 0; i--) {
             if (rules[i].cssText.includes('thumb')) {
-               index = i;
+               // get rules text
+               rulestext = sheet.cssRules[i].selectorText;
+
+               // delete rules
+               sheet.deleteRule(i);
                break;
             }
          }
-
-         // delete rules
-         if (sheet.cssRules.length) sheet.deleteRule(index);
 
          // add new rules
          if (this.theme == 'theme1') color = 'white';
